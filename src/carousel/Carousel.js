@@ -232,6 +232,8 @@ export default class Carousel extends Component {
         // Prevent issues with dynamically removed items
         if (nextActiveItem > itemsLength - 1) {
             nextActiveItem = itemsLength - 1;
+            // 解决删除最后一个不滑动到上一个问题
+            this._snapToItem(nextActiveItem, false, false, false, false);
         }
 
         // Handle changing scrollEnabled independent of user -> carousel interaction
